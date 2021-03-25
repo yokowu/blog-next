@@ -1,13 +1,12 @@
 import { Col, Row } from 'antd'
 import React from 'react'
-import styles from '../styles/header.module.css'
 
 const Header = () => {
   return (
     <div>
-      <Row justify="center" align="middle" className={styles.header}>
+      <Row justify="center" align="middle" className="header">
         <Col xs={16} sm={16} md={8} lg={8} xl={8}>
-          <div className={styles.logo}>Yoko</div>
+          <div className="logo">Yoko</div>
         </Col>
 
         <Col xs={0} sm={0} md={8} lg={8} xl={8}>

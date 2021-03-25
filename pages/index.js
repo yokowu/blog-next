@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Footer from '../components/footer'
 import Header from '../components/header'
 import PostList from '../components/postList'
 
@@ -10,6 +11,7 @@ export default function Home() {
       </Head>
       <Header />
       <PostList />
+      <Footer />
     </div>
   )
 }
