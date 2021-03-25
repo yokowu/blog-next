@@ -1,9 +1,10 @@
+/* ----------- post-list */
 .post-list {
   margin-top: 20px;
   box-shadow: 2px 2px 5px 0px rgba(230, 230, 230, 0.5);
 }
 
-.post-title {
+.post-list-title {
   color: rgb(40, 40, 60);
 }
 
@@ -11,7 +12,17 @@
   box-shadow: 5px 5px 10px 10px rgba(230, 230, 230, 0.5);
 }
 
-.post-desc {
+.post-list-desc {
   font-size: 16px;
   color: #02021d;
+}
+
+/* --------- post */
+.post-title {
+  margin: 60px 0px;
+}
+
+.post-content {
+  padding: 40px 30px;
+  box-shadow: 2px 2px 5px 5px rgba(230, 230, 230, 0.5);
 }

@@ -28,8 +28,8 @@ const PostList = () => {
                   <div><ScheduleOutlined /> {item.date}</div>,
                 ]}
               >
-                <h1 className="post-title">{item.title}</h1>
-                <div className="post-desc">{item.desc}</div>
+                <h1 className="post-list-title">{item.title}</h1>
+                <div className="post-list-desc">{item.desc}</div>
               </List.Item>
             )}
           />
