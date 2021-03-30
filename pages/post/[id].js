@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { Col, Row } from 'antd'
 import React, { useEffect, useState } from 'react'
 import Footer from '../../components/footer'
@@ -23,11 +24,16 @@ import 'highlight.js/styles/nord.css'
  })
 
 const Post = () => {
+  const router = useRouter()
   const [html, setHtml] = useState('')
+  const { id, page, index } = router.query
+
   useEffect(_ => {
-    let h = marked("")
-    setHtml(h)
-  }, [])
+    if (Object.keys(router.query).length > 0) {
+      let h = marked(`id: ${id} page: ${page} index; ${index}`)
+      setHtml(h)
+    }
+  }, [router.query])
 
   return (
     <div className="post">
