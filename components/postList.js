@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Col, List, Row, Tag } from 'antd'
 import { ScheduleOutlined } from '@ant-design/icons'
 import React from 'react'
@@ -20,7 +21,11 @@ const PostList = (props) => {
                   <div><ScheduleOutlined /> {item.createdTime}</div>,
                 ]}
               >
-                <h1 className="post-list-title">{item.title}</h1>
+                <Link href={`/post/${item.id}`}>
+                  <a>
+                    <h1 className="post-list-title">{item.title}</h1>
+                  </a>
+                </Link>
                 <div className="post-list-desc">{item.introduce}</div>
               </List.Item>
             )}

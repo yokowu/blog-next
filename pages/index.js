@@ -1,11 +1,21 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import PostList from '../components/postList'
+import { listPosts } from '../services/post'
 
 const Home = () => {
+  const [err, setErr] = useState()
   const [data, setData] = useState([])
+
+  useEffect(_ => {
+    listPosts(1, 5).then(rsp => {
+      setData(rsp.data)
+    }).catch(err => {
+      setErr(err)
+    })
+  }, [])
 
   return (
     <div>

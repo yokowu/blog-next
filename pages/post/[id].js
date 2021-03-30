@@ -7,6 +7,7 @@ import Header from '../../components/header'
 import marked from 'marked'
 import hljs from "highlight.js"
 import 'highlight.js/styles/nord.css'
+import { getPostById } from '../../services/post'
 
  const renderer = new marked.Renderer()
  marked.setOptions({
@@ -26,25 +27,29 @@ import 'highlight.js/styles/nord.css'
 const Post = () => {
   const router = useRouter()
   const [html, setHtml] = useState('')
-  const { id, page, index } = router.query
+  const [post, setPost] = useState({})
+  const { id } = router.query
 
   useEffect(_ => {
     if (Object.keys(router.query).length > 0) {
-      let h = marked(`id: ${id} page: ${page} index; ${index}`)
-      setHtml(h)
+      getPostById(id).then(rsp => {
+        let h = marked(rsp.data.content)
+        setHtml(h)
+        setPost(rsp.data)
+      })
     }
   }, [router.query])
 
   return (
     <div className="post">
       <Head>
-        <title>yokowu | 文章</title>
+        <title>yokowu { post.title ? " | " + post.title : "" }</title>
       </Head>
       <Header />
 
       <div className="post-title">
         <Row justify="center">
-          <h1>React 是什么?</h1>
+          <h1>{ post.title }</h1>
         </Row>
       </div>
 
