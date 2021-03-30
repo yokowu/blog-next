@@ -1,0 +1,9 @@
+pre {
+  display: block;
+  padding: .5rem !important;
+  overflow-y: auto;
+  font-weight: 300;
+  font-family: Menlo, monospace;
+  border-radius: .3rem;
+  box-shadow: 2px 2px 5px 5px rgba(230, 230, 230, 0.5);
+}
