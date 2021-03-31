@@ -6,7 +6,7 @@ import Footer from '../../components/footer'
 import Header from '../../components/header'
 import marked from 'marked'
 import hljs from "highlight.js"
-import 'highlight.js/styles/nord.css'
+import 'highlight.js/styles/atelier-cave-dark.css'
 import { getPostById } from '../../services/post'
 
  const renderer = new marked.Renderer()
