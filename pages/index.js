@@ -11,7 +11,9 @@ const Home = () => {
 
   useEffect(_ => {
     listPosts(1, 5).then(rsp => {
-      setData(rsp.data)
+      if (rsp.data !== null) {
+        setData(rsp.data)
+      }
     }).catch(err => {
       setErr(err)
     })
