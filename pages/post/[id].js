@@ -55,7 +55,7 @@ const Post = () => {
 
       <div>
         <Row justify="center">
-          <Col xs={16} sm={16} md={16} lg={16} xl={16} className="post-content">
+          <Col xs={23} sm={23} md={16} lg={16} xl={16} className="post-content">
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </Col>
         </Row>

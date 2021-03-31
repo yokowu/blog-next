@@ -26,3 +26,7 @@
   padding: 40px 30px;
   box-shadow: 2px 2px 5px 5px rgba(240, 240, 240, 0.5);
 }
+
+p, li {
+  font-size: 18px;
+}
