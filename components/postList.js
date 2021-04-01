@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Col, List, Row, Tag } from 'antd'
 import { ScheduleOutlined } from '@ant-design/icons'
 import React from 'react'
+import { randomColor } from '../utils/util'
 
 const PostList = (props) => {
   return (
@@ -19,6 +20,9 @@ const PostList = (props) => {
                 className="post-list-item"
                 actions={[
                   <div><ScheduleOutlined /> {item.createdTime}</div>,
+                  <div>{item.tags !== undefined ? item.tags.map(v => (
+                    <Tag key={v} color={randomColor()}>{v}</Tag>)) : ""}
+                  </div>
                 ]}
               >
                 <Link href={`/post/${item.id}`}>
