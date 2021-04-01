@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { Col, Row } from 'antd'
+import { Col, Row, Skeleton } from 'antd'
 import React, { useEffect, useState } from 'react'
 import Footer from '../../components/footer'
 import Header from '../../components/header'
@@ -28,6 +28,7 @@ const Post = () => {
   const router = useRouter()
   const [html, setHtml] = useState('')
   const [post, setPost] = useState({})
+  const [loading, setLoading] = useState(true)
   const { id } = router.query
 
   useEffect(_ => {
@@ -36,6 +37,7 @@ const Post = () => {
         let h = marked(rsp.data.content)
         setHtml(h)
         setPost(rsp.data)
+        setLoading(false)
       })
     }
   }, [router.query])
@@ -56,7 +58,9 @@ const Post = () => {
       <div>
         <Row justify="center">
           <Col xs={23} sm={23} md={16} lg={16} xl={16} className="post-content">
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <Skeleton className="my-skeleton" loading={loading} active>
+              <div dangerouslySetInnerHTML={{ __html: html }} />
+            </Skeleton>
           </Col>
         </Row>
       </div>

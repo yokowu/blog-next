@@ -30,3 +30,7 @@
 p, li {
   font-size: 18px;
 }
+
+.my-skeleton {
+  height: 500px;
+}
