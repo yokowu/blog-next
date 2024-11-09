@@ -1,100 +1,69 @@
-import Image from "next/image";
-
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  // Mock data for blog posts
+  const blogPosts = [
+    { id: 1, title: "Understanding Next.js", excerpt: "Learn the basics of Next.js and how to get started with it." },
+    { id: 2, title: "Tailwind CSS Tips", excerpt: "Enhance your styling with these Tailwind CSS tips and tricks." },
+    { id: 3, title: "JavaScript ES6 Features", excerpt: "Explore the new features introduced in ES6 and how to use them." },
+    { id: 4, title: "React Hooks Deep Dive", excerpt: "Understand how React Hooks work and how to use them effectively." },
+    { id: 5, title: "CSS Grid Layout", excerpt: "Learn how to create complex layouts easily with CSS Grid." },
+    { id: 6, title: "TypeScript for Beginners", excerpt: "Get started with TypeScript and learn its basic features." },
+    { id: 7, title: "Building REST APIs with Node.js", excerpt: "A comprehensive guide to building RESTful APIs using Node.js." },
+    { id: 8, title: "GraphQL vs REST", excerpt: "Compare GraphQL and REST to understand their differences and use cases." },
+    { id: 9, title: "Optimizing React Performance", excerpt: "Tips and best practices for optimizing React performance." },
+    { id: 10, title: "Serverless Architecture", excerpt: "Exploring the benefits of serverless architecture and how it can improve your applications." },
+    { id: 11, title: "The Future of AI in Web Development", excerpt: "How AI is changing the landscape of web development and what it means for the future." },
+    { id: 12, title: "Building a Chatbot with RAG", excerpt: "Learn how to build a chatbot using Retrieval Augmented Generation (RAG)." },
+    { id: 13, title: "Cybersecurity in the Digital Age", excerpt: "Understanding the importance of cybersecurity in the digital age and how to protect yourself online." },
+    { id: 14, title: "The Impact of AI on SEO", excerpt: "How AI is changing the way we optimize websites for search engines." },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+      {/* Navigation Bar */}
+      <nav className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-md">
+        <div className="container mx-auto flex justify-between items-center p-4">
+          <div className="flex items-center space-x-2">
+            <div className="logo bg-purple-700 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg border-2 border-white">
+              <span className="text-2xl font-extrabold">Y</span>
+            </div>
+            <div className="text-xl font-bold">Yoko&apos;s Blog</div>
+          </div>
+          <div className="space-x-4">
+            <a href="#" className="hover:text-gray-200">Home</a>
+            <a href="#" className="hover:text-gray-200">About</a>
+            <a href="#" className="hover:text-gray-200">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="flex-grow container mx-auto p-8">
+        <h1 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
+          Posts
+        </h1>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map(post => (
+            <div key={post.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+              <h2 className="text-2xl font-semibold mb-2 text-purple-600">{post.title}</h2>
+              <p className="text-gray-700">{post.excerpt}</p>
+            </div>
+          ))}
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-r from-purple-300 to-indigo-300 text-white shadow-md">
+        <div className="container mx-auto text-center p-4">
+          <p>© {new Date().getFullYear()} Yoko&apos;s Blog</p>
+          <a
+            className="hover:text-gray-200"
+            href="https://beian.miit.gov.cn/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            陕ICP备2024053216号-1
+          </a>
+        </div>
       </footer>
     </div>
   );
